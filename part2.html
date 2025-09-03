@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework 2 - Part 2</title>
+</head>
+<body>
+  <h2>Part 2: Number Operations</h2>
+
+  <p>
+    First Number: <input type="text" id="num1"><br><br>
+    Second Number: <input type="text" id="num2"><br><br>
+    Third Number: <input type="text" id="num3"><br><br>
+    <button onclick="calculate()">Process</button>
+    <button onclick="clearResults()">Clear</button>
+  </p>
+
+  <textarea id="results" rows="6" cols="50" readonly></textarea>
+
+  <p><a href="hw2.html">Back to Homework 2 Main Page</a></p>
+
+  <script>
+    function calculate() {
+      var n1 = document.getElementById('num1').value;
+      var n2 = document.getElementById('num2').value;
+      var n3 = document.getElementById('num3').value;
+
+      // Make sure the inputs are numbers
+      if (isNaN(n1) || isNaN(n2) || isNaN(n3) || n1=="" || n2=="" || n3=="") {
+        document.getElementById('results').value = "Error: Please enter numbers in all boxes.";
+        return;
+      }
+
+      n1 = Number(n1);
+      n2 = Number(n2);
+      n3 = Number(n3);
+
+      var sum = n1 + n2 + n3;
+      var avg = sum / 3;
+      var product = n1 * n2 * n3;
+      var smallest = Math.min(n1, n2, n3);
+      var largest = Math.max(n1, n2, n3);
+
+      // Show results
+      document.getElementById('results').value =
+        "Sum: " + sum + "\n" +
+        "Average: " + avg + "\n" +
+        "Product: " + product + "\n" +
+        "Smallest: " + smallest + "\n" +
+        "Largest: " + largest;
+    }
+
+    function clearResults() {
+      document.getElementById('results').value = "";
+    }
+  </script>
+</body>
+</html>
